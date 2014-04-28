@@ -17,7 +17,6 @@ Gem::Specification.new do |s|
   s.requirements << 'none'
 
   s.add_dependency 'spree_core'
-  s.add_dependency 'protected_attributes'
   s.add_dependency 'rest-client', '1.6.7'
 
   s.add_development_dependency 'capybara', '1.0.1'
