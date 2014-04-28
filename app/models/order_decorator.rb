@@ -2,7 +2,11 @@ require 'rest-client'
 
 Spree::Order.class_eval do
 
-  attr_accessible :moip_boleto_url, :moip_debito_url
+  def create
+    Order.create(order_params)
+  end
+
+
 
   state_machine  do
     before_transition :to => 'payment', :do => :generate_moip_token
@@ -22,6 +26,10 @@ Spree::Order.class_eval do
   end
 
   private
+
+  def order_params
+    params.permit(:moip_boleto_url, :moip_debito_url)
+  end
 
     def regenerate_token
       if self.moip_token.present?
