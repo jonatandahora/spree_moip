@@ -1,0 +1,110 @@
+<div id="MoipWidget" data-token="<%= @order.moip_token %>" callback-method-success="funcao_sucesso" callback-method-error="funcao_falha"></div>
+<% param_prefix = "payment_source[#{payment_method.id}]" %>
+<%= hidden_field_tag :order_moip_boleto_url, nil, :name => "order[moip_boleto_url]" %>
+<%= hidden_field_tag :order_moip_debito_url, nil, :name => "order[moip_debito_url]" %>
+
+<h2>Forma de Pagameto</h2>
+<p>
+  <%= label_tag do %>
+    <%= radio_button_tag :payment_type, "boleto", true %>
+    Boleto Bancário
+  <% end %>
+  <%= label_tag do %>
+    <%= radio_button_tag :payment_type, "cartao_de_credito" %>
+    Cartão de Crédito
+  <% end %>
+  <%= label_tag do %>
+    <%= radio_button_tag :payment_type, "debito" %>
+    Débito bancário
+  <% end %>
+</p>
+
+<div id="boleto" class="moip_payment">
+</div>
+<div id="cartao_de_credito" class="moip_payment">
+  <h3>Instituiçao</h3>
+  <p>
+    <%= label_tag do %>
+      <%= radio_button_tag :instituicao, "Visa" %>
+      Visa
+    <% end %>
+
+    <%= label_tag do %>
+      <%= radio_button_tag :instituicao, "AmericanExpress" %>
+      American Express
+    <% end %>
+
+    <%= label_tag do %>
+      <%= radio_button_tag :instituicao, "Diners" %>
+      Diners
+    <% end %>
+
+    <%= label_tag do %>
+      <%= radio_button_tag :instituicao, "Hipercard" %>
+      Hipercard
+    <% end %>
+
+    <%= label_tag do %>
+      <%= radio_button_tag :instituicao, "Mastercard" %>
+      Mastercard
+    <% end %>
+  </p>
+  <p>
+    <%= label_tag :numero, "Número" %>
+    <%= text_field_tag :numero %>
+  </p>
+
+  <p>
+    <%= label_tag :codigo_seguranca, "Codigo de segurança" %>
+    <%= text_field_tag :codigo_seguranca %>
+  </p>
+
+  <p>
+    <%= label_tag :expiracao, "Expiração" %>
+    <%= text_field_tag :expiracao %>
+  </p>
+
+  <p>
+    <%= label_tag :nome, "Nome" %>
+    <%= text_field_tag :nome %>
+  </p>
+
+  <p>
+    <%= label_tag :data_nascimento, "Data de nascimento" %>
+    <%= text_field_tag :data_nascimento %>
+  </p>
+
+  <p>
+    <%= label_tag :telefone, "Telefone" %>
+    <%= text_field_tag :telefone %>
+  </p>
+
+  <p>
+    <%= label_tag :identidade, "CPF" %>
+    <%= text_field_tag :identidade %>
+  </p>
+</div>
+<div id="debito" class="moip_payment">
+  <h3>Instituiçao</h3>
+  <p>
+    <%= label_tag do %>
+      <%= radio_button_tag :instituicao, "BancoDoBrasil" %>
+      Banco do Brasil
+    <% end %>
+
+    <%= label_tag do %>
+      <%= radio_button_tag :instituicao, "Bradesco" %>
+      Bradesco
+    <% end %>
+
+    <%= label_tag do %>
+      <%= radio_button_tag :instituicao, "Banrisul" %>
+      Banrisul
+    <% end %>
+
+    <%= label_tag do %>
+      <%= radio_button_tag :instituicao, "Itau" %>
+      Itaú
+    <% end %>
+  </p>
+</div>
