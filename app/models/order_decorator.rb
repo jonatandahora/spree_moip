@@ -9,7 +9,7 @@ Spree::Order.class_eval do
 
 
   state_machine  do
-    before_transition :to => 'payment', :do => :generate_moip_token
+    before_transition :to => :payment, :do => :generate_moip_token
   end
 
   def generate_moip_token
