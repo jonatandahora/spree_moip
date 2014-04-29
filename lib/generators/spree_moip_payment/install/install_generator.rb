@@ -4,11 +4,11 @@ module SpreeMoipPayment
       source_root File.expand_path("../templates", __FILE__)
 
       def add_javascripts
-        append_file 'app/assets/javascripts/store/all.js', "//= require store/spree_moip_payment\n"
+        append_file 'app/assets/javascripts/application.js', "//= require store/spree_moip_payment\n"
       end
 
       def add_stylesheets
-        append_file 'app/assets/stylesheets/store/all.css', "/* *= require store/spree_moip_payment\n*/"
+        append_file 'app/assets/stylesheets/application.css', "/* *= require store/spree_moip_payment\n*/"
       end
 
       def add_migrations
