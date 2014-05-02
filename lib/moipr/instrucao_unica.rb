@@ -18,7 +18,7 @@ module Moipr
         :headers => {
           :content_type => :xml,
           :accept => :xml
-	  :Authorization => 'Basic ' + Base64.encode64(Moipr.configuration.secret_token + Moipr.configuration.secret_key)
+	  :authorization => 'Basic ' + Base64.encode64(Moipr.configuration.secret_token + Moipr.configuration.secret_key)
         }
       }
     end
