@@ -14,8 +14,8 @@ module Moipr
         :method => :post,
         :url => Moipr.configuration.url,
         :payload => @xml.build,
-        :user => Moipr.configuration.secret_key,
-        :password => Moipr.configuration.secret_token,
+        :user => 'jonatandahora@outlook.com',
+        :password => 'jonatan1234',
         :headers => {
           :content_type => :xml,
           :accept => :xml
