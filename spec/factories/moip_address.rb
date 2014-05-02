@@ -14,6 +14,6 @@ Factory.define :moip_address, :parent => :address do |record|
   end
   record.zipcode '00000-000'
   record.phone '(21)0000-0000'
-  record.address_number 65
-  record.district "New Hope"
+  #record.address_number 65
+  #record.district "New Hope"
 end
