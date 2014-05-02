@@ -14,7 +14,7 @@ Spree::Order.class_eval do
 
   def generate_moip_token
     regenerate_token
-    self.create_shipment!
+    #self.create_shipment!
     self.reload
     xml = Moipr::EnviarInstrucaoXML.new(order: self)
     instrucao_unica = Moipr::InstrucaoUnica.new(xml)
