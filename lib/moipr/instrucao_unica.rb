@@ -5,13 +5,14 @@ module Moipr
     end
 
     def request
-      RestClient::Request.execute(params)
+    user = "MPPK25WMATRLIABUJO0UQIMSBPZGQQURVSYPTFII"
+    password = "MWVXU9OTHMEYNR0VXGT2L0GDQRMLMBPH"
+      RestClient::Request.execute(params(user, password))
     end
 
     private
-    user = "MPPK25WMATRLIABUJO0UQIMSBPZGQQURVSYPTFII"
-    password = "MWVXU9OTHMEYNR0VXGT2L0GDQRMLMBPH"
-    def params
+    
+    def params(user, password)
       {
         :method => :post,
         :url => Moipr.configuration.url,
