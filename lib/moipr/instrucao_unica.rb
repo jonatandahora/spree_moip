@@ -8,7 +8,9 @@ module Moipr
     end
 
     def request
-      RestClient::Request.execute(params)
+      req = RestClient::Request.new
+      req.basic_auth(Moipr.configuration.secret_token, Moipr.configuration.secret_key)
+      req.execute(params)
     end
     private
     def params
@@ -18,8 +20,7 @@ module Moipr
         :payload => @xml.build,
         :headers => {
           :content_type => :xml,
-          :accept => :xml,
-	  :Authorization =>Base64.encode64( Moipr.configuration.secret_token + ":" + Moipr.configuration.secret_key )
+          :accept => :xml
         }
       }
     end
