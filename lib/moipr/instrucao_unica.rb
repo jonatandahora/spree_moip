@@ -10,7 +10,6 @@ module Moipr
 
     private
     user = Moipr.configuration.secret_key.to_s
-    Moipr.configuration.secret_key.to_s = nil ? puts "NULOPORRA" : "AEHHHHHHHH"
     password = Moipr.configuration.secret_token.to_s
     def params
       {
