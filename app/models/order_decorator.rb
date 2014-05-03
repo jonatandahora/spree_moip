@@ -19,9 +19,9 @@ Spree::Order.class_eval do
     xml = Moipr::EnviarInstrucaoXML.new(order: self)
     instrucao_unica = Moipr::InstrucaoUnica.new(xml)
     response = instrucao_unica.request
-
+    puts response
     doc = Nokogiri::XML(response.to_s)
-    moip_token = doc.xpath("//Token")[0].content
+    moip_token = doc.xpath('//Token')[0].content
     update_column(:moip_token, moip_token)
   end
 
