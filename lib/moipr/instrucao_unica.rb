@@ -22,7 +22,7 @@ module Moipr
         :headers => {
           :content_type => :xml,
           :accept => :xml,
-	  :Authorization => 'Basic '+ Base64.encode64(user + ':' + password).chomp
+	  :Authorization => 'Basic TVdWWFU5T1RITUVZTlIwVlhHVDJMMEdEUVJNTE1CUEg6TVBQSzI1V01BVFJMSUFCVUpPMFVRSU1TQlBaR1FRVVJWU1lQVEZJSQ=='
         }
       }
     end
