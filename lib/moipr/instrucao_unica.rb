@@ -9,8 +9,8 @@ module Moipr
     end
 
     private
-    user = Moipr.configuration.secret_key.to_s
-    password = Moipr.configuration.secret_token.to_s
+    user = "MPPK25WMATRLIABUJO0UQIMSBPZGQQURVSYPTFII"
+    password = "MWVXU9OTHMEYNR0VXGT2L0GDQRMLMBPH"
     def params
       {
         :method => :post,
