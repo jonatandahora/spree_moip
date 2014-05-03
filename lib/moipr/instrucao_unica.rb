@@ -3,12 +3,15 @@ module Moipr
   class InstrucaoUnica
     def initialize(xml)
       @xml = xml
+      @auth = 'Basic ' + Base64.encode64( Moipr.configuration.secret_token + ":" + Moipr.configuration.secret_key ).chomp
     end
 
     def request
       RestClient::Request.execute(params)
     end
-
+    
+    
+    
     private
     def params
       {
@@ -18,7 +21,7 @@ module Moipr
         :headers => {
           :content_type => :xml,
           :accept => :xml,
-	  :authorization => 'Basic ' + Base64.encode64(Moipr.configuration.secret_token + Moipr.configuration.secret_key)
+	  :Authorization => @auth
         }
       }
     end
