@@ -5,12 +5,13 @@ module Moipr
     end
 
     def request
-     # req = RestClient::Request.new(params)
-     # req.basic_auth Moipr.configuration.secret_token, Moipr.configuration.secret_key
       RestClient::Request.execute(params)
     end
 
     private
+    user = Moipr.configuration.secret_key.to_s
+    Moipr.configuration.secret_key.to_s== nil?puts "NULOPORRA":"AEHHHHHHHH"
+    password = Moipr.configuration.secret_token.to_s
     def params
       {
         :method => :post,
@@ -21,7 +22,7 @@ module Moipr
         :headers => {
           :content_type => :xml,
           :accept => :xml,
-	  :Authorization => 'Basic '+ Base64.encode64(:password.to_s +":"+ :user.to_s).chomp
+	  :Authorization => 'Basic '+ Base64.encode64(password + ':' + user).chomp
         }
       }
     end
