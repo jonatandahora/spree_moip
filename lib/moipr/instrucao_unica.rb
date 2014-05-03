@@ -1,9 +1,10 @@
 require 'base64'
 module Moipr
   class InstrucaoUnica
+    @auth = 'Basic ' + Base64.encode64( Moipr.configuration.secret_token + ":" + Moipr.configuration.secret_key )
     def initialize(xml)
       @xml = xml
-      @auth = 'Basic ' + Base64.encode64( Moipr.configuration.secret_token + ":" + Moipr.configuration.secret_key ).chomp
+      
     end
 
     def request
