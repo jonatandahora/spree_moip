@@ -5,9 +5,18 @@ module Moipr
     end
 
     def request
-    user = "MPPK25WMATRLIABUJO0UQIMSBPZGQQURVSYPTFII"
-    password = "MWVXU9OTHMEYNR0VXGT2L0GDQRMLMBPH"
-      RestClient::Request.execute(params(user, password))
+    #user = "MPPK25WMATRLIABUJO0UQIMSBPZGQQURVSYPTFII"
+    #password = "MWVXU9OTHMEYNR0VXGT2L0GDQRMLMBPH"
+    #  RestClient::Request.execute(params(user, password))
+    RestClient.post( Moipr.configuration.url,
+	{ :payload => @xml.build,
+        
+        	:headers => {
+          		:content_type => :xml,
+          		:accept => :xml,
+	  		:Authorization => 'Basic TVdWWFU5T1RITUVZTlIwVlhHVDJMMEdEUVJNTE1CUEg6TVBQSzI1V01BVFJMSUFCVUpPMFVRSU1TQlBaR1FRVVJWU1lQVEZJSQ=='
+        	}
+	})
     end
 
     private
