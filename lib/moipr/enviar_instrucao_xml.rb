@@ -21,7 +21,7 @@ module Moipr
               e.Complemento @order.bill_address.address2 # Opcional 45
               e.Bairro 'Anchieta'
               e.Cidade @order.bill_address.city # 32
-              e.Estado @order.bill_address.state.abbr # UF -> 2
+              e.Estado 'SP'
               e.Pais "BRA" # 3
               e.CEP  '09601-000'
               e.TelefoneFixo '(11)1234-0000'
